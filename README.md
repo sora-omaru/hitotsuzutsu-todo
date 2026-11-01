@@ -18,3 +18,16 @@ http://localhost:3000 を開いてください。
 GitHub Pagesの公開元を「GitHub Actions」に設定すると、`main`へのpushで`.github/workflows/pages.yml`が実行され、`dist/`をデプロイします。Actions画面から手動実行もできます。公開先のURLはワークフローのデプロイ結果で確認できます。
 
 タスクデータはアクセスした人のブラウザに保存され、GitHubには送信されません。SitesとGitHub PagesではURLが異なるため、保存データはそれぞれ独立します。
+
+## Vercel
+
+`vercel.json`で静的ファイルの公開元を`dist/`に指定しています。リポジトリをVercelにインポートするときは、Root Directoryをリポジトリのルート、Framework Presetを「Other」にします。
+
+CLIでデプロイする場合は次を実行してください。
+
+```sh
+npx vercel login
+npx vercel --prod
+```
+
+VercelのURLで保存するタスクデータは、GitHub PagesやSitesのデータとは独立します。
